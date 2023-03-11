@@ -7,13 +7,14 @@ import ExpiryDate from './components/ExpiryDate';
 import Password from './components/Password';
 
 function App() {
-  const {setCardNumErrorOnBlur, setCvvErrorOnBlur, setDateMonthErrorOnBlur, setDateYearErrorOnBlur} = useGlobalContext()
+  const {setCardNumErrorOnBlur, setCvvErrorOnBlur, setDateMonthErrorOnBlur, setDateYearErrorOnBlur, setPasswordErrorOnBlur} = useGlobalContext()
 
   const checkAllErrors =()=>{
     setCardNumErrorOnBlur()
     setCvvErrorOnBlur()
     setDateMonthErrorOnBlur()
     setDateYearErrorOnBlur()
+    setPasswordErrorOnBlur()
   }
 
   return (

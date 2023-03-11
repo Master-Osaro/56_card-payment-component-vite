@@ -4,7 +4,7 @@ import mastercardLogo from './assets/logos/mastercard.svg'
 import visaLogo from './assets/logos/visa.svg'
 import verveLogo from './assets/logos/verve.svg'
 import unknownCard from './assets/icons/unknown_card.svg'
-import { validateCardNumberInput,validateCVV, validateDateMonth, validateDateYear } from './utils/validation';
+import { validateCardNumberInput,validateCVV, validateDateMonth, validateDateYear, validatePassword } from './utils/validation';
 
 
 //1 create app context
@@ -15,6 +15,7 @@ const AppProvider =({children})=>{
     const [cvvNumber, setCVVNumber]= useState("");
     const [dateMonth, setDateMonth]= useState("");
     const [dateYear, setDateYear]= useState("");
+    const [password, setPassword]= useState("");
     const [currentCardMerchant, setCurrentCardMerchant]=useState(mastercardLogo)
 
     /** Card Number Error */
@@ -33,12 +34,16 @@ const AppProvider =({children})=>{
     const [isdateYearValid, setIsDateYearValid] = useState("_")
     const [dateYearError, setDateYearError] = useState("")
 
+    /** Password Error */
+    const [isPasswordValid, setIsPasswordValid] = useState("_")
+    const [passwordError, setPasswordError] = useState("")
+
     
     
     /** =========== Error Checking Functions ==========*/
     /** Card Number Error Check on page load first then on blur */
-    const setCardNumErrorOnNumberChange=(cardNumber)=>{
-        if (cardNumber.length>0 || (cardNumber.length<=0&&cardNumberErrorState!="")){
+    const setCardNumErrorOnNumberChange=(number)=>{
+        if (number.length>0 || (number.length<=0&&cardNumberErrorState!="")){
             setIsCardNumberValidState(isCardNumValid);
             setcardNumberErrorState(cardNumError);
         }  
@@ -49,10 +54,10 @@ const AppProvider =({children})=>{
     }
 
     /** CVV Error Check */
-    const setCvvErrorOnChange=(cardNumber)=>{
-        if (cardNumber.length>0 || (cardNumber.length<=0&&cvvErrorState!="")){
-            setIsCVVValidState(validateCVV(cardNumber).isCardNumValid);
-            setCvvErrorState(validateCVV(cardNumber).cardNumError);
+    const setCvvErrorOnChange=(number)=>{
+        if (number.length>0 || (number.length<=0&&cvvErrorState!="")){
+            setIsCVVValidState(validateCVV(number).isCardNumValid);
+            setCvvErrorState(validateCVV(number).cardNumError);
         }  
     }
     const setCvvErrorOnBlur=()=>{
@@ -61,20 +66,20 @@ const AppProvider =({children})=>{
     }
 
     /** Date Error Check */
-    const setDateMonthErrorOnChange=(cardNumber)=>{
-        if (cardNumber.length>0 || (cardNumber.length<=0&&cvvErrorState!="")){
-            setIsDateMonthValid(validateDateMonth(cardNumber).isCardNumValid);
-            setDateMonthError(validateDateMonth(cardNumber).cardNumError);
+    const setDateMonthErrorOnChange=(number)=>{
+        if (number.length>0 || (number.length<=0&&cvvErrorState!="")){
+            setIsDateMonthValid(validateDateMonth(number).isCardNumValid);
+            setDateMonthError(validateDateMonth(number).cardNumError);
         }  
     }
     const setDateMonthErrorOnBlur=()=>{
         setIsDateMonthValid(validateDateMonth(dateMonth).isCardNumValid);
         setDateMonthError(validateDateMonth(dateMonth).cardNumError);
     }
-    const setDateYearErrorOnChange=(cardNumber)=>{
-        if (cardNumber.length>0 || (cardNumber.length<=0&&cvvErrorState!="")){
-            setIsDateYearValid(validateDateYear(cardNumber).isCardNumValid);
-            setDateYearError(validateDateYear(cardNumber).cardNumError);
+    const setDateYearErrorOnChange=(number)=>{
+        if (number.length>0 || (number.length<=0&&cvvErrorState!="")){
+            setIsDateYearValid(validateDateYear(number).isCardNumValid);
+            setDateYearError(validateDateYear(number).cardNumError);
         }  
     }
     const setDateYearErrorOnBlur=()=>{
@@ -82,10 +87,22 @@ const AppProvider =({children})=>{
         setDateYearError(validateDateYear(dateYear).cardNumError);
     }
 
+    /** Password Error Check */
+    const setPasswordErrorOnChange=(pass)=>{
+        if (pass.length>0 || (pass.length<=0&&cvvErrorState!="")){
+            setIsPasswordValid(validatePassword(pass).isCardNumValid);
+            setPasswordError(validatePassword(pass).cardNumError);
+        }  
+    }
+    const setPasswordErrorOnBlur=()=>{
+        setIsPasswordValid(validatePassword(password).isCardNumValid);
+        setPasswordError(validatePassword(password).cardNumError);
+    }
+
 
     return(
         <AppContext.Provider 
-        value={{mastercardLogo, verveLogo, visaLogo, unknownCard, cardNumber, setCardNumber, isCardNumberValidState, cardNumberErrorState, setCardNumErrorOnBlur, setCardNumErrorOnNumberChange, cvvNumber, setCVVNumber, setCvvErrorOnChange, setCvvErrorOnBlur, cvvErrorState, isCVVValidState, currentCardMerchant, setCurrentCardMerchant, dateMonth, setDateMonth, isdateMonthValid,dateMonthError, setDateMonthErrorOnChange, setDateMonthErrorOnBlur, dateYear, isdateYearValid, setDateYear, dateYearError, setIsDateYearValid, setDateYearErrorOnChange, setDateYearErrorOnBlur}}
+        value={{mastercardLogo, verveLogo, visaLogo, unknownCard, cardNumber, setCardNumber, isCardNumberValidState, cardNumberErrorState, setCardNumErrorOnBlur, setCardNumErrorOnNumberChange, cvvNumber, setCVVNumber, setCvvErrorOnChange, setCvvErrorOnBlur, cvvErrorState, isCVVValidState, currentCardMerchant, setCurrentCardMerchant, dateMonth, setDateMonth, isdateMonthValid,dateMonthError, setDateMonthErrorOnChange, setDateMonthErrorOnBlur, dateYear, isdateYearValid, setDateYear, dateYearError, setDateYearErrorOnChange, setDateYearErrorOnBlur, password, isPasswordValid, setPassword, passwordError, setPasswordErrorOnChange, setPasswordErrorOnBlur}}
         >{children}
         </AppContext.Provider>
     )

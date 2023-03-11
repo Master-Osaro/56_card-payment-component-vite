@@ -1,8 +1,11 @@
 import { useGlobalContext } from "../context";
 import cardChipIcon from '../assets/icons/card_chip.svg'
+import { useEffect } from "react";
 
 const SideCardSummary=()=>{
-    const {currentCardMerchant} = useGlobalContext()
+    const {currentCardMerchant, cardNumber, dateYear, dateMonth} = useGlobalContext()
+    useEffect(()=>{
+    },[cardNumber])
 
     return (
         <div className="card__summary">
@@ -12,9 +15,9 @@ const SideCardSummary=()=>{
             </div>
             <div className="s_card--bottom">
               <p className="s_card__name">Onasanya Habeeb</p>
-              <p className='s_card__dts'><span className="dots"></span>9128</p>
+              <p className='s_card__dts'><span className="dots"></span>{!cardNumber?"0000":cardNumber.substring(cardNumber.length-4)}</p>
               <div className="s_card--group">
-              <p className='s_card__date'>9/23</p>
+              <p className='s_card__date'>{!dateMonth?"00":dateMonth}/{!dateYear?"00":dateYear}</p>
                 <div className="s_card__merchant">
                   <img src={currentCardMerchant} alt="" />
                   {/* <img src={visaLogo} alt="" />
