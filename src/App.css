@@ -24,7 +24,7 @@
 .App{
   width: 100%;
   max-width: 1200px;
-  padding: 3rem 0;
+  padding: 3rem 1.5rem;
 }
 
 
@@ -39,6 +39,7 @@
   background: var(--very-dark-aqua);
   border:  var(--very-dark-aqua);
   color: var(--white);
+  cursor: pointer;
 }
 
 h3, label {
@@ -51,6 +52,15 @@ main{
   grid-template-columns: 2fr 1fr;
   gap: 2rem;
   align-items: center;
+}
+
+@media screen and (max-width: 772px) {
+  main{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+    align-items: center;
+  }
 }
 
 .card__form{
@@ -78,6 +88,13 @@ main{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+}
+
+@media screen and (max-width: 772px) {
+  .form-group-grid{
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
 
 .card__expiry-inputs{
@@ -122,6 +139,15 @@ main{
   width: 200px;
   background-color: var(--dark-grey);
   color: var(--white);
+  box-shadow: 2px 2px 20px rgba(99, 99, 99, 0.075) ;
+  margin: 1.25rem  1.25rem;
+}
+
+@media screen and (max-width: 772px) {
+  .s_card{
+    height: 250px;
+    width: 100%;
+  }
 }
 
 .summary__list{
@@ -129,6 +155,7 @@ main{
   grid-template-columns: 1fr 1fr;
 }
 .card__summary{
+  width: 100%;
   background:  var(--whitish);
   display: flex;
   flex-direction: column;
@@ -148,6 +175,11 @@ main{
   flex-direction: column;
   justify-content: space-between;
   font-size: 12px;
+}
+@media screen and (max-width: 772px) {
+  .s_card{
+    transform: translateY(0px);
+  }
 }
 
 .summary__list-wrapper{
