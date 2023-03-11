@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap');
+*{
+  margin:  0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#root {
+  font-family: 'Raleway', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --aqua: #00B2E0;
+  --very-dark-aqua: #005166;
+  --very-light-grey: #dadada;
+  --light-grey: #aaaaaa;
+  --dark-grey: #25262B;
+  --very-dark-grey: #131419;
+  --white: #ffffff;
+  --whitish: #fafafa;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.App{
+  width: 100%;
+  max-width: 1200px;
+  padding: 3rem 0;
+}
+
+
+.btn, input{
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  border-radius: 0.25rem;
+  font-family: inherit;
+}
+
+.btn{
+  background: var(--very-dark-aqua);
+  border:  var(--very-dark-aqua);
+  color: var(--white);
+}
+
+h3, label {
+  color:var(--very-dark-aqua);
+  font-weight: 700;
+}
+
+main{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.card__form{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem
+}
+
+.form-group input{
+  border: 0.5px solid var(--very-light-grey);
+  text-align: center;
+}
+
+.description{
+  font-size: 0.75rem;
+}
+
+.form-group-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.card__expiry-inputs{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.card__expiry-inputs--divider{
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--light-grey);
+}
+
+/*Card Number Component Styling*/
+.form-group.card__number{
+  position: relative;
+}
+
+.card__number--merchant-logo{
+  position: absolute;
+  top: 0.75rem;
+  left: 1rem;
+}
+.card__number input{
+  padding-left: 4rem;
+  font-size: 1rem;
+}
+
+#card-number-error,#cvv-number-error{
+  color: #bb5033;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+/*=== END Card Number Component Styling===*/
+
+.s_card{
+  height: 250px;
+  width: 200px;
+  background-color: var(--dark-grey);
+  color: var(--white);
+}
+
+.summary__list{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.card__summary{
+  background:  var(--whitish);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 1.5rem;
+}
+
+
+.s_card{
+  transform: translateY(-50px);
+  border-radius: 0.25rem;
+  padding: 1.5rem;
+  background: var(--white);
+  color: var(--very-dark-aqua);
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.summary__list-wrapper{
+  margin-bottom: 1.5rem;
+}
+.summary__list-wrapper, .summary__pay{
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.summary__list, .summary__pay{
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.summary__list--titles,.summary__list--values{
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.summary__list--titles{
+  color: var(--light-grey);
+}
+.summary__list--values{
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: var(--very-dark-aqua);
+}
+
+.summary__pay{
+  display:  flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.summary__pay-text{
+  display:  flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.summary__pay-text{
+  display:  flex;
+  flex-direction: column;
+  color: var(--light-grey);
+}
+.summary__pay-text p span{
+  color: var(--very-dark-aqua);
+  font-size: 1rem;
+}
+
+.dashed__line--wrapper{
+  width: 100%;
+  padding: 0 2rem;
+  margin-bottom: 1.5rem;
+}
+.dashed__line{
+  border: 1px dashed var(--light-grey);
+  width: 100%;
+}
+
+.s_card--group{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.2rem;
+  align-items: center;
+}
+
+input.valid{
+  background-color: #F2F6F7;
+  border: 1px solid #507A88; 
+}
+input.error{
+  background-color: #f8f6f6;
+  border: 1px solid #D4A092;
+}
