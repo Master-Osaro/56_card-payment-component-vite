@@ -8,7 +8,7 @@ import CVV from './components/CVV';
 import ExpiryDate from './components/ExpiryDate';
 
 function App() {
-  const {setCardNumErrorOnBlur, setCvvErrorOnBlur} = useGlobalContext()
+  const {setCardNumErrorOnBlur, setCvvErrorOnBlur, setDateMonthErrorOnBlur} = useGlobalContext()
 
   return (
     <div className="App">
@@ -22,6 +22,7 @@ function App() {
             e.preventDefault()
             setCardNumErrorOnBlur()
             setCvvErrorOnBlur()
+            setDateMonthErrorOnBlur()
           }}>
           <CardNumber />
           <CVV />
