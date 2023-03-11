@@ -9,8 +9,8 @@ const Password =()=>{
     return (
     <div className="form-group form-group-grid card__password">
         <div className="label__group">
-        <label htmlFor=''>Password</label>
-        <p className='description' id='password-description'>Enter your dynamic password</p>
+        <label htmlFor=''>Card Pin</label>
+        <p className='description' id='password-description'>Enter your dynamic pin</p>
         <p id='cvv-number-error' className='description'>{passwordError}</p>
         </div>
         <input type="password"  className={isPasswordValid===true?"valid": isPasswordValid!="_"?"error":""} id='password' aria-describedby='password-description'

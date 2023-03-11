@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         {/* For logo and theme switcher */}
-        <h3>Vivacoin<span>Pay</span></h3>
+        <h3 className='logo'>Vivacoin<span>Pay</span></h3>
       </header>
       <main>
         <form action="" className="card__form" onSubmit={

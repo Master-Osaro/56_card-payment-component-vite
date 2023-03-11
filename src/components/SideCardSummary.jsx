@@ -15,7 +15,15 @@ const SideCardSummary=()=>{
             </div>
             <div className="s_card--bottom">
               <p className="s_card__name">Onasanya Habeeb</p>
-              <p className='s_card__dts'><span className="dots"></span>{!cardNumber?"0000":cardNumber.substring(cardNumber.length-4)}</p>
+              <p className='s_card__dts'>
+                <span className="dots">
+                  <span className="dot"></span>
+                  <span className="dot"></span>
+                  <span className="dot"></span>
+                  <span className="dot"></span>
+                </span>
+                <span className="s_card__last4">{!cardNumber?"0000":cardNumber.substring(cardNumber.length-4)}</span>
+                </p>
               <div className="s_card--group">
               <p className='s_card__date'>{!dateMonth?"00":dateMonth}/{!dateYear?"00":dateYear}</p>
                 <div className="s_card__merchant">
