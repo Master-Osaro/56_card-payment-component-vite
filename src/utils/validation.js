@@ -72,7 +72,7 @@ export const validateDateMonth = (number) => {
 export const validateDateYear = (number) => {
     let error ="";
     const d = new Date();
-    let year = d.getFullYear();
+    let year = ""+d.getFullYear();
     let yearTwoDigits = parseInt(year.substring(2,4))
     if(generalNumberValidation(number)){
         return generalNumberValidation(number);
@@ -86,6 +86,22 @@ export const validateDateYear = (number) => {
     else if (yearTwoDigits>number) {
         // isValid = false;
         error="This card has expired";
+        return {"isCardNumValid":false, "cardNumError":error};
+    }
+    else {
+        error="";
+        return {"isCardNumValid":true, "cardNumError":error};
+    }
+}
+
+export const validatePassword = (number) => {
+    let error ="";
+    if(generalNumberValidation(number)){
+        return generalNumberValidation(number);
+    }
+    else if (number.length<4) {
+        // isValid = false;
+        error="Enter at least 4 digits "+(4-parseInt(number.length))+" remaining";
         return {"isCardNumValid":false, "cardNumError":error};
     }
     else {

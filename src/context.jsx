@@ -68,8 +68,8 @@ const AppProvider =({children})=>{
         }  
     }
     const setDateMonthErrorOnBlur=()=>{
-        setIsDateMonthValid(validateDateMonth(cardNumber).isCardNumValid);
-        setDateMonthError(validateDateMonth(cardNumber).cardNumError);
+        setIsDateMonthValid(validateDateMonth(dateMonth).isCardNumValid);
+        setDateMonthError(validateDateMonth(dateMonth).cardNumError);
     }
     const setDateYearErrorOnChange=(cardNumber)=>{
         if (cardNumber.length>0 || (cardNumber.length<=0&&cvvErrorState!="")){
@@ -78,8 +78,8 @@ const AppProvider =({children})=>{
         }  
     }
     const setDateYearErrorOnBlur=()=>{
-        setIsDateYearValid(validateDateYear(cardNumber).isCardNumValid);
-        setDateYearError(validateDateYear(cardNumber).cardNumError);
+        setIsDateYearValid(validateDateYear(dateYear).isCardNumValid);
+        setDateYearError(validateDateYear(dateYear).cardNumError);
     }
 
 
