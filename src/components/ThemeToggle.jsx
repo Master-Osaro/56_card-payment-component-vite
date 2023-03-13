@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import MoonIcon from "../assets/icons/MoonIcon";
+import SunIcon from "../assets/icons/SunIcon";
 
 const ThemeToggle=()=>{
     const [currentTheme, setCurrentTheme] = useState("light")
@@ -54,20 +56,21 @@ useEffect(()=>{
     console.log("Check Changed to "+currentTheme)
 },[currentTheme])
     return (
-        <div className="sm-card__toggle">
-            <input type="checkbox" id="cb" onChange={
-                (e)=>{
-                    e.target.checked?setCurrentTheme("dark"):setCurrentTheme("light");
-                    console.log(e.target.checked);
-                }
-            }/>
-            <label htmlFor="cb" className="switch" 
-            onClick={(e)=>{
-                console.log("Theme Switch Clicked")
-            }}>
-                <span className="slider round"></span>
-            </label>
-    </div>       
+        <div className="toggle__wrapper">
+            <SunIcon iconColor={themes[currentTheme].textColor}/>
+            <div className="sm-card__toggle">
+                <input type="checkbox" id="cb" onChange={
+                    (e)=>{
+                        e.target.checked?setCurrentTheme("dark"):setCurrentTheme("light");
+                    }
+                }/>
+                <label htmlFor="cb" className="switch" >
+                    <span className="slider round"></span>
+                </label>
+            </div>
+            <MoonIcon iconColor={themes[currentTheme].textColor}/>
+
+        </div>    
     )
 }
 

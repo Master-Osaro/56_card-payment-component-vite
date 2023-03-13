@@ -8,7 +8,7 @@ import Password from './components/Password';
 import ThemeToggle from './components/ThemeToggle';
 
 function App() {
-  const {setCardNumErrorOnBlur, setCvvErrorOnBlur, setDateMonthErrorOnBlur, setDateYearErrorOnBlur, setPasswordErrorOnBlur} = useGlobalContext()
+  const {setCardNumErrorOnBlur, setCvvErrorOnBlur, setDateMonthErrorOnBlur, setDateYearErrorOnBlur, setPasswordErrorOnBlur, checkAllFormsValid} = useGlobalContext()
 
   const checkAllErrors =()=>{
     setCardNumErrorOnBlur()
@@ -31,7 +31,9 @@ function App() {
           (e)=>{
             e.preventDefault();
             checkAllErrors();
-            
+            if(checkAllFormsValid()){
+              alert("Thanks for stopping by, this is just a test payment component")
+            }
           }}>
           <CardNumber />
           <CVV />

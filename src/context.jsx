@@ -99,10 +99,19 @@ const AppProvider =({children})=>{
         setPasswordError(validatePassword(password).cardNumError);
     }
 
+    const checkAllFormsValid=()=>{
+        if (!isCardNumValid || !validateCVV(cvvNumber).isCardNumValid || !validateDateMonth(dateMonth).isCardNumValid || !validateDateYear(dateYear).isCardNumValid || !validatePassword(password).isCardNumValid   ) {
+            return false
+        } else{
+            return true
+        }
+    }
+        
+
 
     return(
         <AppContext.Provider 
-        value={{mastercardLogo, verveLogo, visaLogo, unknownCard, cardNumber, setCardNumber, isCardNumberValidState, cardNumberErrorState, setCardNumErrorOnBlur, setCardNumErrorOnNumberChange, cvvNumber, setCVVNumber, setCvvErrorOnChange, setCvvErrorOnBlur, cvvErrorState, isCVVValidState, currentCardMerchant, setCurrentCardMerchant, dateMonth, setDateMonth, isdateMonthValid,dateMonthError, setDateMonthErrorOnChange, setDateMonthErrorOnBlur, dateYear, isdateYearValid, setDateYear, dateYearError, setDateYearErrorOnChange, setDateYearErrorOnBlur, password, isPasswordValid, setPassword, passwordError, setPasswordErrorOnChange, setPasswordErrorOnBlur}}
+        value={{mastercardLogo, verveLogo, visaLogo, unknownCard, cardNumber, setCardNumber, isCardNumberValidState, cardNumberErrorState, setCardNumErrorOnBlur, setCardNumErrorOnNumberChange, cvvNumber, setCVVNumber, setCvvErrorOnChange, setCvvErrorOnBlur, cvvErrorState, isCVVValidState, currentCardMerchant, setCurrentCardMerchant, dateMonth, setDateMonth, isdateMonthValid,dateMonthError, setDateMonthErrorOnChange, setDateMonthErrorOnBlur, dateYear, isdateYearValid, setDateYear, dateYearError, setDateYearErrorOnChange, setDateYearErrorOnBlur, password, isPasswordValid, setPassword, passwordError, setPasswordErrorOnChange, setPasswordErrorOnBlur, checkAllFormsValid}}
         >{children}
         </AppContext.Provider>
     )
