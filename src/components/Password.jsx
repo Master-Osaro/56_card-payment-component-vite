@@ -11,7 +11,7 @@ const Password =()=>{
         <div className="label__group">
         <label htmlFor=''>Card Pin</label>
         <p className='description' id='password-description'>Enter your dynamic pin</p>
-        <p id='cvv-number-error' className='description'>{passwordError}</p>
+        <p id='cvv-number-error' className='description' aria-live="polite">{passwordError}</p>
         </div>
         <input type="password"  className={isPasswordValid===true?"valid": isPasswordValid!="_"?"error":""} id='password' aria-describedby='password-description'
         onChange={(e)=>{setPassword(e.target.value.trim())}}

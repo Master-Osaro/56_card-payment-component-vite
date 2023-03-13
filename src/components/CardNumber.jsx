@@ -54,9 +54,9 @@ const CardNumber=()=>{
         <div className="form-group">
         <label htmlFor=''>Card Number</label>
         <p id='card-number-description' className='description'>Enter the 16-digit card number on the card</p>
-        <p id='card-number-error' className='description'>{cardNumberErrorState}</p>
+        <p id='card-number-error' className='description' aria-live="assertive">{cardNumberErrorState}</p>
         <div className="form-group card__number">
-            <div className="card__number--merchant-logo"><img src={currentCardMerchant} alt="" /></div>
+            <div aria-hidden="true" className="card__number--merchant-logo"><img src={currentCardMerchant} alt="" /></div>
             <input type="text" className={isCardNumberValidState===true?"valid": isCardNumberValidState!="_"?"error":""} onChange={(e)=>{
                 const splittedString = chunkStr(e.target.value.trim(), 4, []);
                 setCardNumber(e.target.value.trim().substring(0,20))

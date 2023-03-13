@@ -11,7 +11,7 @@ const CVV =()=>{
         <div className="label__group">
             <label htmlFor=''>CVV Number</label>
             <p id='cvv-description' className='description'>Enter the 3 or 4 digit Number on the Card</p>
-            <p id='cvv-number-error' className='description'>{cvvErrorState}</p>
+            <p id='cvv-number-error' className='description' aria-live="polite">{cvvErrorState}</p>
         </div>
         <input type="text" aria-describedby='cvv-description cvv-number-error' className={isCVVValidState===true?"valid": isCVVValidState!="_"?"error":""} onChange={(e)=>{
             setCVVNumber(e.target.value.trim().substring(0,3))

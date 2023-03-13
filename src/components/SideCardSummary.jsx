@@ -10,8 +10,8 @@ const SideCardSummary=()=>{
     return (
         <div className="card__summary">
           <div className="s_card">
-            <div className="s_card--top">
-              <img src={cardChipIcon} alt="" />
+            <div aria-hidden="true" className="s_card--top">
+              <img src={cardChipIcon} alt="Card Chip" />
             </div>
             <div className="s_card--bottom">
               <p className="s_card__name">Onasanya Habeeb</p>
@@ -26,10 +26,8 @@ const SideCardSummary=()=>{
                 </p>
               <div className="s_card--group">
               <p className='s_card__date'>{!dateMonth?"00":dateMonth}/{!dateYear?"00":dateYear}</p>
-                <div className="s_card__merchant">
+                <div aria-hidden="true" className="s_card__merchant">
                   <img src={currentCardMerchant} alt="" />
-                  {/* <img src={visaLogo} alt="" />
-                  <img src={verveLogo} alt="" /> */}
                 </div>
               </div>
             </div>

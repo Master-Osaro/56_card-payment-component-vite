@@ -15,8 +15,8 @@ const ExpiryDate =()=>{
         <div className="label__group">
             <label htmlFor=''>Expiry Date</label>
             <p aria-describedby='' className='description'>Enter the expiration date of the Card</p>
-            <p id='cvv-number-error' className='description'>{dateMonthError}</p>
-            <p id='cvv-number-error' className='description'>{dateYearError}</p>
+            <p id='cvv-number-error' className='description' aria-live="polite">{dateMonthError}</p>
+            <p id='cvv-number-error' className='description' aria-live="polite">{dateYearError}</p>
         </div>
 
         <div className="card__expiry-inputs">

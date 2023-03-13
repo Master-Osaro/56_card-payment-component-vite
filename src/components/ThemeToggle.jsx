@@ -64,7 +64,7 @@ useEffect(()=>{
                         e.target.checked?setCurrentTheme("dark"):setCurrentTheme("light");
                     }
                 }/>
-                <label htmlFor="cb" className="switch" >
+                <label htmlFor="cb" className="switch" aria-label="theme-toggle" >
                     <span className="slider round"></span>
                 </label>
             </div>
