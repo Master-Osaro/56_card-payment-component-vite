@@ -53,7 +53,6 @@ function setColors() {
 
 useEffect(()=>{
     setColors()
-    console.log("Check Changed to "+currentTheme)
 },[currentTheme])
     return (
         <div className="toggle__wrapper">
