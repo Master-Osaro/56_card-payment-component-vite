@@ -5,6 +5,7 @@ import { useGlobalContext } from './context';
 import CVV from './components/CVV';
 import ExpiryDate from './components/ExpiryDate';
 import Password from './components/Password';
+import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   const {setCardNumErrorOnBlur, setCvvErrorOnBlur, setDateMonthErrorOnBlur, setDateYearErrorOnBlur, setPasswordErrorOnBlur} = useGlobalContext()
@@ -19,11 +20,13 @@ function App() {
 
   return (
     <div className="App">
+      
+      <main>
       <header className="App-header">
         {/* For logo and theme switcher */}
         <h3 className='logo'>Vivacoin<span>Pay</span></h3>
+        <ThemeToggle />
       </header>
-      <main>
         <form action="" className="card__form" onSubmit={
           (e)=>{
             e.preventDefault();
